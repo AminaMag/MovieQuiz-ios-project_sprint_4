@@ -6,12 +6,19 @@ final class MovieQuizViewController: UIViewController {
     }
     @IBAction private func noButtonClicked(_ sender: UIButton) {
     }
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
+    
     @IBOutlet private var imageView: UIImageView!
     @IBOutlet private var textLabel: UILabel!
     @IBOutlet private var counterLabel: UILabel!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        func show(quiz step: QuizStepViewModel) {
+          imageView.image = step.image
+          textLabel.text = step.question
+          counterLabel.text = step.questionNumber
+        }
+    }
 }
 
 private var currentQuestionIndex = 0
